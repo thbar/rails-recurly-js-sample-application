@@ -34,6 +34,10 @@ end
 
 gem 'devise', '~> 3.1.1'
 
+group :development do
+  gem 'guard-rspec', require: false
+end
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
 end
