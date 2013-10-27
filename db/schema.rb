@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131020084434) do
+ActiveRecord::Schema.define(version: 20131027105448) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -26,9 +26,11 @@ ActiveRecord::Schema.define(version: 20131020084434) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "recurly_account_code"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["recurly_account_code"], name: "index_users_on_recurly_account_code", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
