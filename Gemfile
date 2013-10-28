@@ -34,6 +34,8 @@ end
 
 gem 'devise', '~> 3.1.1'
 
+gem "anjlab-bootstrap-rails", "~> 3.0.0.3", require: 'bootstrap-rails'
+
 group :development do
   gem 'guard-rspec', require: false
 end
