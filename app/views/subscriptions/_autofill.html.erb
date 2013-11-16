@@ -1,0 +1,64 @@
+<a data-setup="FR" class="btn autofill" style="margin-bottom: 1em;">FR</a>
+<a data-setup="US" class="btn autofill" style="margin-bottom: 1em;">US</a>
+<a data-setup="DE" class="btn autofill" style="margin-bottom: 1em;">DE</a>
+
+<script>
+  var fixtures = {
+    FR: {
+      first_name: 'Nicolas',
+      last_name: 'Dupont',
+      company_name: 'SuperDesign',
+      card_number: '4111-1111-1111-1111',
+      cvv: '123',
+      address1: 'Rue du design',
+      city: 'Brive',
+      zip: '27354',
+      country: 'FR',
+      year: '2014',
+      vat_number: 'FR DIGI'
+    },
+    DE: {
+      first_name: 'Hans',
+      last_name: 'Himmer',
+      company_name: 'WunderWeb',
+      card_number: '4111-1111-1111-1111',
+      cvv: '123',
+      address1: 'SuperStrasse',
+      city: 'Vunkenberg',
+      zip: 'AB378',
+      country: 'DE',
+      year: '2014',
+      vat_number: 'YAYA'
+    },
+    US: {
+      first_name: 'John',
+      last_name: 'Richards',
+      company_name: 'USADesign',
+      card_number: '4111-1111-1111-1111',
+      cvv: '123',
+      address1: 'Maine Street',
+      city: 'New-York',
+      zip: 'AB378',
+      country: 'US',
+      year: '2014'
+    }
+  }
+
+  function setupAutoFill(element, data) {
+    $(element).click( function() {
+      for (var k in data) {
+        var p = "." + k;
+        $(p + " input," + p + " select").val(data[k]);
+        $(p + " .placeholder").hide();
+        $(p + " select").change();
+      }
+      $("#tos_check").prop('checked', true);
+      $(".vat_number").change();
+    });
+  };
+
+  $.each($('.autofill'), function (index, item) { 
+    data = $(item).data('setup');
+    setupAutoFill($(item), fixtures[data]);
+  });
+</script>
