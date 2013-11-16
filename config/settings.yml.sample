@@ -1,0 +1,6 @@
+# Create a Recurly account and fill this into settings.yml
+# PSA: do not put this under version control
+recurly:
+  api_key:
+  js_private_key:
+  subdomain:
