@@ -15,4 +15,16 @@ module BillingService
     user.update_attribute(:recurly_enabled, true)
     return true
   end
+
+  def close_account(account_unique_identifier)
+    # no need to verify the output of find since it will raise if no match is found
+    account = Recurly::Account.find(account_unique_identifier)
+    # close the account
+    account.destroy
+    # as well, terminate subscription without refund, immediately, so that 
+    # our MRR and active subscriptions are reported properly, otherwise they
+    # will remain live until the termination date
+    account.subscriptions.live.each { |s| s.terminate(:none) }
+  end
+
 end
