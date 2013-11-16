@@ -1,5 +1,5 @@
 class SiteController < ApplicationController
   def index
-    redirect_to '/dashboard' if current_user
+    redirect_to dashboard_path if current_user
   end
 end

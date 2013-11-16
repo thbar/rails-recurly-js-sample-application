@@ -15,13 +15,17 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <% unless current_user %>
-          <li><a href="#">Sign In</a></li>
+          <li><%= link_to "Sign in", dashboard_path %></li>
+          <% end %>
+          <% if current_user && controller.controller_name != 'subscriptions' %>
+          <li><%= link_to("Sign out", destroy_user_session_path, :method => :delete) %></li>
           <% end %>
         </ul>
         <h3 class="text-muted"><%= link_to 'SuperSaaS', '/' %></h3>
       </div>
+      <%= render partial: 'shared/notice' %>
       <%= yield %>
-      <div class="footer">
+      <div class="footer" style="margin-top: 3em;">
         <p>&copy; Acme Corp 2013</p>
       </div>
     </div>

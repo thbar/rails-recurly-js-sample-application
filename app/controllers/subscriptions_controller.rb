@@ -8,7 +8,7 @@ class SubscriptionsController < ApplicationController
       redirect_to dashboard_url, notice: "Subscription already activated!"
     else
       if BillingService.confirm_subscription(current_user, params[:recurly_token].to_s)
-        redirect_to help_url, notice: "Your subscription has been successfully activated!"
+        redirect_to dashboard_url, notice: "Your subscription has been successfully activated!"
       else
         redirect_to error_subscription_url, alert: "An error occurred!"
       end

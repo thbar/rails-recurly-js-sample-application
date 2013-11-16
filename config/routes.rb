@@ -3,7 +3,7 @@ RailsRecurlyJsSampleApplication::Application.routes.draw do
 
   root 'site#index'
 
-  get 'dashboard' => 'dashboard#index'
+  get 'dashboard' => 'dashboard#index', as: 'dashboard'
 
   resource :subscription, only: [:new] do
     get :error
