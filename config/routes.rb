@@ -3,5 +3,12 @@ RailsRecurlyJsSampleApplication::Application.routes.draw do
 
   root 'site#index'
 
+  get 'dashboard' => 'dashboard#index'
 
+  resource :subscription, only: [:new] do
+    get :error
+    post :confirm
+    get :edit
+    post :billing_information, action: 'update'
+  end
 end

@@ -1,0 +1,39 @@
+<%= content_for :head do %>
+  <%= javascript_include_tag :recurly %>
+  <%= stylesheet_link_tag :recurly %>
+<% end %>
+
+<div>
+<h2>Step 2 - Enter your billing information</h2>
+
+  <div id="recurly-form"></div>
+
+</div>
+
+<script type="text/javascript">
+  Recurly.config({
+    subdomain: gon.recurly_subdomain,
+    currency: 'USD',
+    country: 'FR'
+  });
+  Recurly.buildSubscriptionForm({
+    account: {
+      account_code: gon.recurly_account_code,
+      email: gon.recurly_email
+    },
+    subscription: {
+      trialEndsAt: gon.recurly_trial_ends_at,
+    },
+    target: '#recurly-form',
+    planCode: gon.recurly_plan_code,
+    signature: gon.recurly_signature,
+    collectCompany: true,
+    distinguishContactFromBillingInfo: true,
+    acceptedCards: ['american_express', 'mastercard', 'visa'],
+    successURL: gon.recurly_success_url
+  });
+</script>
+
+<% if Rails.env.development? %>
+  Dev mode: autofill: <%= render partial: 'autofill' %>
+<% end %>
