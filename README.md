@@ -22,7 +22,7 @@ The code is not meant to be high-quality, nice looking etc but rather, a quick g
 ## Setup
 
 * create a [Recurly account](http://recurly.com) (free as long as you do not enable a production payment gateway)
-* create a "freelancer" plan
+* create a "freelancer" plan (do *not* configure a trial period - the app handles it to be able to show the correct price at sign-up)
 * you'll want to setup VAT etc if applicable in your settings
 * enable API access and JS API access
 * create `config/settings.yml` based on the sample
