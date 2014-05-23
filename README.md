@@ -2,6 +2,10 @@ This is a work-in-progress of a sample Rails app supporting recurring payments w
 
 Follow me on Twitter for updates: [@thibaut_barrere](http://twitter.com/thibaut_barrere)
 
+## Important note
+
+The current code relies on Recurly.js v2. It is still usable and will be for some time I believe, but you will prefer to adapt it to [Recurly.js v3](https://docs.recurly.com/recurlyjs) directly to save some time.
+
 ## Preliminary reading
 
 * [Recurly.js: The Basics](https://www.wisecashhq.com/blog/recurly-js-the-basics)
